@@ -224,15 +224,6 @@ torus1Folder
         material1.color.set(debugObject.color1)
     })
 
-// Radio de la órbita: se usa dentro de tick() en vez del número 2 fijo
-debugObject.orbitRadius = 2
-torus1Folder
-    .add(debugObject, 'orbitRadius')
-    .min(1)
-    .max(5)
-    .step(0.01)
-    .name('radio de órbita')
-
 // ---------- CARPETA: ESCENA ----------
 const sceneFolder = gui.addFolder('Escena')
 sceneFolder.add(axesHelper, 'visible').name('ejes')
@@ -270,8 +261,8 @@ const tick = () => {
     torusMesh1.rotation.y = Math.PI * elapsedTime
 
     //HACER QUE EL MESH1 ORBITE ALREDEDOR DEL MESH
-    torusMesh1.position.x = Math.cos(elapsedTime) * debugObject.orbitRadius
-    torusMesh1.position.z = Math.sin(elapsedTime) * debugObject.orbitRadius
+    torusMesh1.position.x = Math.cos(elapsedTime) * 2
+    torusMesh1.position.z = Math.sin(elapsedTime) * 2
 
     //ACTUALIZAR CONTROLES
     controls.update()
